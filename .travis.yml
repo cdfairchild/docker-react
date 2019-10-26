@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t cdfairchild/docker-react -f dockerfile.dev
+
+scripts:
+  - docker run -e CI=true cdfairchild/docker-react npm run test
